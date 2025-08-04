@@ -1,3 +1,4 @@
+# Structure
 ```base
 my-express-app/
 ├── src/
@@ -55,10 +56,26 @@ helmet을 통한 보안 헤더 설정
 express-validator를 이용한 입력값 검증
 별도의 검증 미들웨어로 분리
 
-다음 단계
+# Testing
+- Jest와 Supertest를 사용한 테스트 환경 구성
+- MongoDB Memory Server로 테스트용 DB 환경 구축
+- 유닛 테스트: 모델, 서비스, 유틸리티 함수 테스트
+- 통합 테스트: API 엔드포인트 전체 플로우 테스트
+- 테스트 픽스처: 재사용 가능한 테스트 데이터
+- GitHub Actions: 자동화된 CI/CD 파이프라인
+```bash
+# 모든 테스트 실행
+npm test
 
-MongoDB 연결 및 모델 구현
-JWT 기반 인증 시스템 구현
-API 문서화 (Swagger)
-테스트 코드 작성
-Docker 컨테이너화
+# 테스트 감시 모드 (파일 변경 시 자동 재실행)
+npm run test:watch
+
+# 커버리지 리포트와 함께 테스트
+npm run test:coverage
+
+# 특정 파일만 테스트
+npm test auth.test.js
+
+# 특정 테스트 스위트만 실행
+npm test -- --testNamePattern="Auth Service"
+```
